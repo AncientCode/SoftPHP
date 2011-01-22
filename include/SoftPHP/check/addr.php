@@ -33,7 +33,7 @@
 class soft_check_addr { // Address Checking class
 	/**
 	 * Email Checking Function
-	 * @param string $email
+	 * @param string $email in *@*.* form
 	 **/
 	function email($email) {
 		// A vaild email need to have at least 6 characters and look like this *@*.*
@@ -47,7 +47,7 @@ class soft_check_addr { // Address Checking class
 	/**
 	 * URL checking Function
 	 * For http, https, ftp, ftps, gopher
-	 * @param string $url
+	 * @param string $url in protocol://something form
 	 */
 	function url($url) {
 		preg_match_all("/^(http(s)|ftp(s)|gopher):\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"])*$/", $url, $matches);
@@ -59,8 +59,8 @@ class soft_check_addr { // Address Checking class
 	}
 	
 	/**
-	 * Mailto Address checking function, not normally needed.
-	 * @param string $addr
+	 * Mailto Address checking function, not normally used.
+	 * @param string $addr in mailto:*@*.*
 	 */
 	function mailto($addr) {
 		$value = explode('mailto:', $addr);
@@ -70,8 +70,8 @@ class soft_check_addr { // Address Checking class
 	}
 	
 	/**
-	 * Link checking function
-	 * What I mean link is an address that is mailto: or protocol://something 
+	 * Link checking function.
+	 * What I mean link is an address that is mailto: or protocol://something.
 	 * @param string $addr
 	 */
 	function link($addr) {
