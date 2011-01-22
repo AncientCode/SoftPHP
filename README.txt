@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ---------------------------------------------------------------------
 SoftPHP is a fast, simple, object-oriented, and powerful PHP
-Framework that uses many creative functions that revolutionary
+Framework that uses many creative functions and revolutionary
 changes the way we write programs. Not only for web, but also for
 command line and GUI using PHP's cli and PHP-GTK.
 
