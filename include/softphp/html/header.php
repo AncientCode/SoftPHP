@@ -1,4 +1,27 @@
 <?php
+/***********************************************************************
+ * SoftPHP - Fast, simple, object-oriented, and powerful PHP Framework
+ * Copyright (C) 2011 SoftX Technologies Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * This file can be use to print HTML header tags.
+ *
+ * Usage:
+ * $test = new soft_html_header();
+ * No argument ever required to create this class
+ **********************************************************************/
 class soft_html_header {
 	/**
 	 * HTML Doctype and and head tag
@@ -10,58 +33,74 @@ class soft_html_header {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang?>" lang="<?php echo $lang?>">
 <head>';
 	}
-	
+
 	/**
 	 * Content-Type meta tag
 	 * @param string $charset code like ISO-8859-1 and utf8
 	 * @param string $type MIME Type
 	 */
 	function content_type($charset = 'utf8', $type = 'text/html') {
-?>
-	<meta http-equiv="Content-Type" content="<?php echo $type?>; charset=<?php echo $charset?>" />
-<?php
+		?>
+<meta
+	http-equiv="Content-Type"
+	content="<?php echo $type?>; charset=<?php echo $charset?>" />
+		<?php
 	}
-	
+
 	/**
-	 * Page Title Tag 
+	 * Page Title Tag
 	 * @param String $title
 	 */
 	function title($title) {
 		echo "\t<title>$title</title>";
 	}
-	
+
 	/**
 	 * Meta Description
 	 * @param string $text comma seperated list is quotes
 	 */
 	function description($text) {
-		?>	<meta name="Description" content="<?php echo $text;?>" />";<?php
+		?>
+<meta
+	name="Description" content="<?php echo $text;?>" />
+";
+		<?php
 	}
-	
+
 	/**
 	 * Meta Description
 	 * @param string $text comma seperated list is quotes
 	 */
 	function keyword($text) {
-		?>	<meta name="Keywords" content="<?php echo $text;?>" />";<?php
+		?>
+<meta
+	name="Keywords" content="<?php echo $text;?>" />
+";
+		<?php
 	}
-	
+
 	/**
 	 * CSS Import
 	 * @param url $css Path to css file
 	 */
 	function css($css) {
-		?>	<link rel="stylesheet" type="text/css" href="<?php echo $css?>" /><?php
+		?>
+<link
+	rel="stylesheet" type="text/css" href="<?php echo $css?>" />
+		<?php
 	}
-	
+
 	/**
 	 * JavaScript Import
 	 * @param url $js Path to JavaScript File
 	 */
 	function js($js) {
-		?>	<script src="<?php echo $js?>" type="text/javascript"></script><?php
+		?>
+<script
+	src="<?php echo $js?>" type="text/javascript"></script>
+		<?php
 	}
-	
+
 	/**
 	 * HTML link tag,
 	 * see http://www.w3schools.com/tags/tag_link.asp for detail
@@ -70,9 +109,13 @@ class soft_html_header {
 	 * @param string $href Location
 	 */
 	function link_tag($rel, $type, $href) {
-		?>	<link rel="<?php echo $rel?>" type="<?php echo $type?>" href="<?php echo $href?>" /><?php 
+		?>
+<link
+	rel="<?php echo $rel?>" type="<?php echo $type?>"
+	href="<?php echo $href?>" />
+		<?php
 	}
-	
+
 	/**
 	 * HTML meta name tag,
 	 * see http://www.w3schools.com/tags/tag_meta.asp for detail
@@ -80,9 +123,12 @@ class soft_html_header {
 	 * @param string $content
 	 */
 	function meta_tag($name, $content) {
-		?>	 <meta name="<?php echo $name?>" content="<?php echo $content?>" /><?php
+		?>
+<meta
+	name="<?php echo $name?>" content="<?php echo $content?>" />
+		<?php
 	}
-	
+
 	/**
 	 * HTML meta http-equiv tag,
 	 * see http://www.w3schools.com/tags/tag_meta.asp for detail
@@ -90,18 +136,22 @@ class soft_html_header {
 	 * @param string $content
 	 */
 	function equiv_tag($name, $content) {
-		?>	 <meta http-equiv="<?php echo $name?>" content="<?php echo $content?>" /><?php
+		?>
+<meta
+	http-equiv="<?php echo $name?>" content="<?php echo $content?>" />
+		<?php
 	}
-	
+
 	/**
 	 * Print </head> and <body>
 	 */
 	function end() {
 		?>
 </head>
-</body><?php
+</body>
+		<?php
 	}
-	
+
 	/**
 	 * Put them all together
 	 * @param string $title
