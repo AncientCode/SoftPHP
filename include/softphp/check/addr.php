@@ -50,6 +50,7 @@ class soft_check_addr { // Address Checking class
 	 * @param string $url in protocol://something form
 	 */
 	function url($url) {
+		// Match the powerful regular experession
 		preg_match_all("/^(http(s)|ftp(s)|gopher):\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"])*$/", $url, $matches);
 		if ($matches[1]) {
 			return true;
@@ -63,8 +64,10 @@ class soft_check_addr { // Address Checking class
 	 * @param string $addr in mailto:*@*.*
 	 */
 	function mailto($addr) {
+		// First check if it starts with a mailto:
 		$value = explode('mailto:', $addr);
 		if ($value[0]) return false;
+		// Check if the address is vaild
 		if (!$this->email($value[1])) return false;
 		return true;
 	}
@@ -82,5 +85,30 @@ class soft_check_addr { // Address Checking class
 			if ($this->mailto($addr)) return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * IP address checker
+	 * @param string $addr
+	 */
+	function ip($addr) {
+		preg_match_all('/^([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/', $ipaddr, $matches);
+		$isip = true;
+
+		if ($matches) {
+			for ($i=0; $i<4; $i++) {
+				if ($matches[$i] < 256) {
+					$isip = false;
+					break;
+				}
+			}
+			if ($isip) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 }

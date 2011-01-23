@@ -94,6 +94,15 @@ class soft_html_header {
 	}
 	
 	/**
+	 * Print </head> and <body>
+	 */
+	function end() {
+		?>
+</head>
+</body><?php
+	}
+	
+	/**
 	 * Put them all together
 	 * @param string $title
 	 * @param string $charset
@@ -106,7 +115,7 @@ class soft_html_header {
 	 * @param array $meta array('name' => 'content', ...);
 	 * @param array $equiv array('name' => 'content', ...);
 	 */
-	function all($title, $charset = 'utf8', $keyword = '', $description = '', $css = array(), $js = array(), $lang = 'en', $type = 'text/html', $link = array(), $meta = array(), $equiv = array()) {
+	function all($title, $body = true, $charset = 'utf8', $keyword = '', $description = '', $css = array(), $js = array(), $lang = 'en', $type = 'text/html', $link = array(), $meta = array(), $equiv = array()) {
 		$this->html($lang);
 		$this->content_type($charset, $type);
 		$this->title($title);
@@ -120,5 +129,6 @@ class soft_html_header {
 		}
 		if ($meta) foreach ($link as $k => $v) $this->meta_tag($k, $v);
 		if ($equiv) foreach ($link as $k => $v) $this->equiv_tag($k, $v);
+		if ($body) $this->end();
 	}
 }
